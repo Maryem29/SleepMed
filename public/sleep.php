@@ -4,7 +4,13 @@ session_start(); // Start the session
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include '../backend/firebase.php'; // Include your 
+include __DIR__ . '/../backend/firebase.php';
+
+if (file_exists(__DIR__ . '/../backend/firebase.php')) {
+    include __DIR__ . '/../backend/firebase.php';
+} else {
+    error_log('firebase.php file not found.');
+}
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
