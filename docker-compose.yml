@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/html
+      - ./backend:/var/www/html/backend
+    environment:
+      GOOGLE_APPLICATION_CREDENTIALS: /var/www/html/firebase-adminsdk.json
+    command: ["apache2-foreground"]
