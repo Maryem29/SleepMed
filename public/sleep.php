@@ -4,7 +4,7 @@ session_start(); // Start the session
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'firebase.php'; // Include your 
+include '../backend/firebase.php'; // Include your 
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
